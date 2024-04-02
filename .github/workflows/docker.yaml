@@ -1,0 +1,23 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker build --tag cjd1/papp_massive .
+
+    - name: Log in to Docker Hub
+      run: echo ${{ secrets.DOCKERHUB_CJD1_PAPP_MASSIVE_TOKEN }} | docker login -u cjd1 --password-stdin
+
+    - name: Push Docker image to Docker Hub
+      run: docker push cjd1/papp_massive
