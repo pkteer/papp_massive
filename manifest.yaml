@@ -1,0 +1,10 @@
+app_id: "massive"
+pkteeros_version: 1
+author_emails:
+    - "cjd@routie.io"
+rootfs: "read_only"
+max_storage: "50M"
+memory: "50M"
+docker_image: "TODO"
+docker_sha256: "TODO"
+readme_url: "https://github.com/pkteer/papp_massive"
